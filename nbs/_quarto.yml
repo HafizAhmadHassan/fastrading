@@ -16,6 +16,7 @@ website:
   navbar:
     background: primary
     search: true
+    collapse-below: lg
     left:
       - text: "Blogs"
         href: blog/index.qmd

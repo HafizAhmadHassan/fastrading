@@ -1,5 +1,5 @@
 ---
-title: Blog
+title: All Blogs
 subtitle: Here we can post about the latest reseach articles and datasets.
 listing:
   sort: "date desc"
