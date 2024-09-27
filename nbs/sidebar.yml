@@ -7,7 +7,5 @@ website:
         contents:
           - section: posts
             contents:
-              - section: 2024-09-27-UOSthesis
-                contents:
-                  href: blog/posts/2024-09-27-UOSthesis/index.qmd
+              href: blog/posts/2024-09-27-UOSthesis/index.qmd
         href: blog/index.qmd
