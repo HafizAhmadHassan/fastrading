@@ -2,9 +2,9 @@
 author: [Hafiz Ahmad Hassan]
 date: 2024-09-27
 image:  /images/logoUos.png
-description: Phd thesis for Forex trading at university of sydney 
+description: A research article for forex trading 
 tags: [forex, trading, deeplearning]
-title: 'Forex Trading Signal Extraction with Deep Learning models'
+title: 'Forex Trading Volatility Prediction using Neural Network Models'
 ---
 
 
