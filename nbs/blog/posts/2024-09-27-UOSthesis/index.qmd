@@ -1,10 +1,10 @@
 ---
 author: [Hafiz Ahmad Hassan]
 date: 2024-09-27
-image:  /images/logoUos.png
+image:  /images/logo_ai.png
 description: A research article for forex trading 
 tags: [forex, trading, deeplearning]
-title: 'Forex Trading Volatility Prediction using Neural Network Models'
+title: 'Predicting Forex Volatility Using Deep Learning'
 ---
 
 
