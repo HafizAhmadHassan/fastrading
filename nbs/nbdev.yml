@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "fastrading"
+  site-url: "https://HafizAhmadHassan.github.io/fastrading"
+  description: "this is fot the trading library of fastai"
+  repo-branch: main
+  repo-url: "https://github.com/HafizAhmadHassan/fastrading"
