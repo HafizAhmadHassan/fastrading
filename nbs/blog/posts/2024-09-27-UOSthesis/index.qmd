@@ -1,0 +1,12 @@
+---
+title: Forex Trading Signal Extraction with Deep Learning models
+subtitle: This is PhD thesis about forex trading at university of sydney 
+listing:
+  sort: "date desc"
+  contents: "posts"
+  sort-ui: false
+  filter-ui: false
+  categories: true
+  feed: true
+page-layout: full
+---
