@@ -5,4 +5,5 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://HafizAhmadHassan.github.io',
                 'git_url': 'https://github.com/HafizAhmadHassan/fastrading',
                 'lib_path': 'fastrading'},
-  'syms': {'fastrading.core': {'fastrading.core.foo': ('core.html#foo', 'fastrading/core.py')}}}
+  'syms': { 'fastrading.core': { 'fastrading.core.foo': ('core.html#foo', 'fastrading/core.py'),
+                                 'fastrading.core.say_hello': ('core.html#say_hello', 'fastrading/core.py')}}}
