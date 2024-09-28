@@ -1,0 +1,10 @@
+---
+author: [Hafiz Ahmad Hassan]
+date: 2024-09-28
+image:  /images/AI4finace.jpeg
+description: A research article from AI4finace
+tags: [forex, trading, deeplearning]
+title: 'FinRL-Meta'
+---
+
+Original : [Paper Link](https://arxiv.org/pdf/2211.03107)
