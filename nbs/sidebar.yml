@@ -6,5 +6,8 @@ website:
       - section: blog
         contents:
           - section: posts
-            href: blog/posts/2024-09-27-UOSthesis/index.qmd
+            contents:
+              - section: 2024-09-27-UOSthesis
+                contents: []
+                href: blog/posts/2024-09-27-UOSthesis/index.qmd
         href: blog/index.qmd
