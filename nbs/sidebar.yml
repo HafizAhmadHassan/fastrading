@@ -10,4 +10,13 @@ website:
               - section: 2024-09-27-UOSthesis
                 contents: []
                 href: blog/posts/2024-09-27-UOSthesis/index.qmd
+              - section: 2024-09-28-research1
+                contents: []
+                href: blog/posts/2024-09-28-research1/index.qmd
+              - section: 2024-09-30-AI-Bot
+                contents: []
+                href: blog/posts/2024-09-30-AI-Bot/index.qmd
+              - section: 2024-09-30-LectureNotes
+                contents: []
+                href: blog/posts/2024-09-30-LectureNotes/index.qmd
         href: blog/index.qmd
