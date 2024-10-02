@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Hafiz Ahmad Hassan">
+<meta name="dcterms.date" content="2024-09-28">
+<meta name="description" content="A research article from AI4finace">
+
+<title>A practical implementation of AI Bot – fastrading</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="A practical implementation of AI Bot – fastrading">
+<meta property="og:description" content="A research article from AI4finace">
+<meta property="og:image" content="https://HafizAhmadHassan.github.io/fastrading/images/AI4finace.jpeg">
+<meta property="og:site_name" content="fastrading">
+<meta name="twitter:title" content="A practical implementation of AI Bot – fastrading">
+<meta name="twitter:description" content="A research article from AI4finace">
+<meta name="twitter:image" content="https://HafizAhmadHassan.github.io/fastrading/images/AI4finace.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">fastrading</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../blog/index.html" aria-current="page"> 
+<span class="menu-text">Blogs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blog/index.html">blog</a></li><li class="breadcrumb-item"><a href="../../../blog/posts/2024-09-27-UOSthesis/index.html">posts</a></li><li class="breadcrumb-item"><a href="../../../blog/posts/2024-09-30-AI-Bot/index.html">2024-09-30-AI-Bot</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fastrading</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../core.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">res_dev</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../blog/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">blog</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">posts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">2024-09-27-UOSthesis</span></span>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">2024-09-28-research1</span></span>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">2024-09-30-AI-Bot</span></span>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">2024-09-30-LectureNotes</span></span>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#chatgpt" id="toc-chatgpt" class="nav-link active" data-scroll-target="#chatgpt">ChatGPt</a>
+  <ul class="collapse">
+  <li><a href="#go-to-chatgpt-and-put-the-following-command" id="toc-go-to-chatgpt-and-put-the-following-command" class="nav-link" data-scroll-target="#go-to-chatgpt-and-put-the-following-command">Go to chatgpt and put the following command :</a></li>
+  <li><a href="#respnse-will-be" id="toc-respnse-will-be" class="nav-link" data-scroll-target="#respnse-will-be">Respnse will be :</a>
+  <ul class="collapse">
+  <li><a href="#emerging-market" id="toc-emerging-market" class="nav-link" data-scroll-target="#emerging-market">1. <strong>Emerging Market</strong></a></li>
+  <li><a href="#growth-market" id="toc-growth-market" class="nav-link" data-scroll-target="#growth-market">2. <strong>Growth Market</strong></a></li>
+  <li><a href="#mature-market" id="toc-mature-market" class="nav-link" data-scroll-target="#mature-market">3. <strong>Mature Market</strong></a></li>
+  <li><a href="#declining-market" id="toc-declining-market" class="nav-link" data-scroll-target="#declining-market">4. <strong>Declining Market</strong></a></li>
+  <li><a href="#fragmented-market" id="toc-fragmented-market" class="nav-link" data-scroll-target="#fragmented-market">5. <strong>Fragmented Market</strong></a></li>
+  <li><a href="#consolidated-market" id="toc-consolidated-market" class="nav-link" data-scroll-target="#consolidated-market">6. <strong>Consolidated Market</strong></a></li>
+  <li><a href="#hyper-competitive-market" id="toc-hyper-competitive-market" class="nav-link" data-scroll-target="#hyper-competitive-market">7. <strong>Hyper-Competitive Market</strong></a></li>
+  <li><a href="#regulated-market" id="toc-regulated-market" class="nav-link" data-scroll-target="#regulated-market">8. <strong>Regulated Market</strong></a></li>
+  <li><a href="#summary-of-strategies-by-regime" id="toc-summary-of-strategies-by-regime" class="nav-link" data-scroll-target="#summary-of-strategies-by-regime">Summary of Strategies by Regime:</a></li>
+  </ul></li>
+  <li><a href="#another-prompt" id="toc-another-prompt" class="nav-link" data-scroll-target="#another-prompt">Another Prompt:</a></li>
+  <li><a href="#nd-respnse" id="toc-nd-respnse" class="nav-link" data-scroll-target="#nd-respnse">2nd Respnse:</a>
+  <ul class="collapse">
+  <li><a href="#trend-following-system" id="toc-trend-following-system" class="nav-link" data-scroll-target="#trend-following-system">1. <strong>Trend-Following System</strong></a></li>
+  <li><a href="#momentum-trading-system" id="toc-momentum-trading-system" class="nav-link" data-scroll-target="#momentum-trading-system">2. <strong>Momentum Trading System</strong></a></li>
+  <li><a href="#swing-trading-system" id="toc-swing-trading-system" class="nav-link" data-scroll-target="#swing-trading-system">3. <strong>Swing Trading System</strong></a></li>
+  <li><a href="#breakout-trading-system" id="toc-breakout-trading-system" class="nav-link" data-scroll-target="#breakout-trading-system">4. <strong>Breakout Trading System</strong></a></li>
+  <li><a href="#buy-and-hold-system-position-trading" id="toc-buy-and-hold-system-position-trading" class="nav-link" data-scroll-target="#buy-and-hold-system-position-trading">5. <strong>Buy and Hold System (Position Trading)</strong></a></li>
+  <li><a href="#sector-rotation-strategy" id="toc-sector-rotation-strategy" class="nav-link" data-scroll-target="#sector-rotation-strategy">6. <strong>Sector Rotation Strategy</strong></a></li>
+  <li><a href="#leveraged-trading-system" id="toc-leveraged-trading-system" class="nav-link" data-scroll-target="#leveraged-trading-system">7. <strong>Leveraged Trading System</strong></a></li>
+  <li><a href="#risk-management-across-all-systems" id="toc-risk-management-across-all-systems" class="nav-link" data-scroll-target="#risk-management-across-all-systems">Risk Management Across All Systems:</a></li>
+  <li><a href="#summary-of-trading-system-strategies-for-a-bull-market" id="toc-summary-of-trading-system-strategies-for-a-bull-market" class="nav-link" data-scroll-target="#summary-of-trading-system-strategies-for-a-bull-market">Summary of Trading System Strategies for a Bull Market:</a></li>
+  </ul></li>
+  <li><a href="#another-prompt-1" id="toc-another-prompt-1" class="nav-link" data-scroll-target="#another-prompt-1">Another Prompt</a></li>
+  <li><a href="#ideas-for-building-a-breakout-trading-system" id="toc-ideas-for-building-a-breakout-trading-system" class="nav-link" data-scroll-target="#ideas-for-building-a-breakout-trading-system">10 Ideas for Building a Breakout Trading System</a>
+  <ul class="collapse">
+  <li><a href="#multiple-timeframe-analysis" id="toc-multiple-timeframe-analysis" class="nav-link" data-scroll-target="#multiple-timeframe-analysis">1. <strong>Multiple Timeframe Analysis:</strong></a></li>
+  <li><a href="#backtesting" id="toc-backtesting" class="nav-link" data-scroll-target="#backtesting">2. <strong>Backtesting:</strong></a></li>
+  <li><a href="#risk-management" id="toc-risk-management" class="nav-link" data-scroll-target="#risk-management">3. <strong>Risk Management:</strong></a></li>
+  <li><a href="#false-breakout-filter" id="toc-false-breakout-filter" class="nav-link" data-scroll-target="#false-breakout-filter">4. <strong>False Breakout Filter:</strong></a></li>
+  <li><a href="#volume-profile" id="toc-volume-profile" class="nav-link" data-scroll-target="#volume-profile">5. <strong>Volume Profile:</strong></a></li>
+  <li><a href="#currency-strength-index-csi" id="toc-currency-strength-index-csi" class="nav-link" data-scroll-target="#currency-strength-index-csi">6. <strong>Currency Strength Index (CSI):</strong></a></li>
+  <li><a href="#news-analysis" id="toc-news-analysis" class="nav-link" data-scroll-target="#news-analysis">7. <strong>News Analysis:</strong></a></li>
+  <li><a href="#technical-indicators" id="toc-technical-indicators" class="nav-link" data-scroll-target="#technical-indicators">8. <strong>Technical Indicators:</strong></a></li>
+  <li><a href="#algorithmic-trading" id="toc-algorithmic-trading" class="nav-link" data-scroll-target="#algorithmic-trading">9. <strong>Algorithmic Trading:</strong></a></li>
+  <li><a href="#continuous-refinement" id="toc-continuous-refinement" class="nav-link" data-scroll-target="#continuous-refinement">10. <strong>Continuous Refinement:</strong></a></li>
+  </ul></li>
+  <li><a href="#my-stratergy" id="toc-my-stratergy" class="nav-link" data-scroll-target="#my-stratergy">My Stratergy:</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/HafizAhmadHassan/fastrading/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.md"><i class="bi bi-file-code"></i>CommonMark</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../blog/index.html">blog</a></li><li class="breadcrumb-item"><a href="../../../blog/posts/2024-09-27-UOSthesis/index.html">posts</a></li><li class="breadcrumb-item"><a href="../../../blog/posts/2024-09-30-AI-Bot/index.html">2024-09-30-AI-Bot</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">A practical implementation of AI Bot</h1>
+</div>
+
+<div>
+  <div class="description">
+    A research article from AI4finace
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Hafiz Ahmad Hassan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 28, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Original : <a href="https://arxiv.org/pdf/2211.03107">Paper Link</a></p>
+<section id="chatgpt" class="level1">
+<h1>ChatGPt</h1>
+<section id="go-to-chatgpt-and-put-the-following-command" class="level2">
+<h2 class="anchored" data-anchor-id="go-to-chatgpt-and-put-the-following-command">Go to chatgpt and put the following command :</h2>
+<blockquote class="blockquote">
+<p>jinn simmons says there are 8 marketing regimes which are those regimes and what type of stratergies do we run in each regime</p>
+</blockquote>
+</section>
+<section id="respnse-will-be" class="level2">
+<h2 class="anchored" data-anchor-id="respnse-will-be">Respnse will be :</h2>
+<p>It sounds like you’re referring to <em>Jim Simmons</em> (often mistakenly spelled “Jinn Simmons”), who is an expert in strategy and business, particularly in fields like marketing and competitive dynamics. He proposed a framework for understanding different <strong>market regimes</strong>, where businesses need to adapt their strategies based on the characteristics and dynamics of each regime.</p>
+<p>While the specific concept of “8 market regimes” is not universally established in standard marketing literature, I can offer a general interpretation based on typical strategic marketing frameworks that align with the idea of market regimes.</p>
+<p>Here’s a possible breakdown of the 8 market regimes and corresponding strategies:</p>
+<section id="emerging-market" class="level3">
+<h3 class="anchored" data-anchor-id="emerging-market">1. <strong>Emerging Market</strong></h3>
+<ul>
+<li><strong>Characteristics</strong>: The market is new, growing rapidly, and has few established players. There is high uncertainty but lots of potential.</li>
+<li><strong>Strategies</strong>:
+<ul>
+<li>Focus on market penetration and creating brand awareness.</li>
+<li>Innovate to establish a first-mover advantage.</li>
+<li>Educate the market and consumers on new products or services.</li>
+</ul></li>
+</ul>
+</section>
+<section id="growth-market" class="level3">
+<h3 class="anchored" data-anchor-id="growth-market">2. <strong>Growth Market</strong></h3>
+<ul>
+<li><strong>Characteristics</strong>: The market is expanding, with increasing demand and new entrants. There’s strong competition as companies try to gain market share.</li>
+<li><strong>Strategies</strong>:
+<ul>
+<li>Invest in scaling operations and increasing market share.</li>
+<li>Emphasize differentiation to stand out from competitors.</li>
+<li>Heavy use of promotion and advertising to capture demand.</li>
+</ul></li>
+</ul>
+</section>
+<section id="mature-market" class="level3">
+<h3 class="anchored" data-anchor-id="mature-market">3. <strong>Mature Market</strong></h3>
+<ul>
+<li><strong>Characteristics</strong>: The market is stable, with well-established players. Growth has slowed down, and market share is harder to win.</li>
+<li><strong>Strategies</strong>:
+<ul>
+<li>Focus on customer retention and loyalty programs.</li>
+<li>Optimize efficiency and cost reduction.</li>
+<li>Innovate within the existing product lines to maintain interest.</li>
+<li>Engage in competitive pricing and promotions to maintain market share.</li>
+</ul></li>
+</ul>
+</section>
+<section id="declining-market" class="level3">
+<h3 class="anchored" data-anchor-id="declining-market">4. <strong>Declining Market</strong></h3>
+<ul>
+<li><strong>Characteristics</strong>: Market demand is shrinking due to technological advancements, changing consumer preferences, or other factors.</li>
+<li><strong>Strategies</strong>:
+<ul>
+<li>Manage decline by cutting costs and maintaining profitability.</li>
+<li>Focus on niche markets or diversify into new products or services.</li>
+<li>Consider exit strategies or mergers and acquisitions to stay competitive.</li>
+</ul></li>
+</ul>
+</section>
+<section id="fragmented-market" class="level3">
+<h3 class="anchored" data-anchor-id="fragmented-market">5. <strong>Fragmented Market</strong></h3>
+<ul>
+<li><strong>Characteristics</strong>: The market consists of many small players with no dominant leader, and customer preferences are highly varied.</li>
+<li><strong>Strategies</strong>:
+<ul>
+<li>Niche targeting and hyper-personalization.</li>
+<li>Localized or tailored marketing efforts.</li>
+<li>Focus on flexibility and adaptability in product offerings.</li>
+<li>Acquisition of smaller competitors to consolidate market share.</li>
+</ul></li>
+</ul>
+</section>
+<section id="consolidated-market" class="level3">
+<h3 class="anchored" data-anchor-id="consolidated-market">6. <strong>Consolidated Market</strong></h3>
+<ul>
+<li><strong>Characteristics</strong>: A few large players dominate the market, with high barriers to entry for newcomers.</li>
+<li><strong>Strategies</strong>:
+<ul>
+<li>Use economies of scale to drive down costs and improve margins.</li>
+<li>Defensive strategies to protect market share from smaller entrants.</li>
+<li>Consider strategic alliances or partnerships to stay competitive.</li>
+</ul></li>
+</ul>
+</section>
+<section id="hyper-competitive-market" class="level3">
+<h3 class="anchored" data-anchor-id="hyper-competitive-market">7. <strong>Hyper-Competitive Market</strong></h3>
+<ul>
+<li><strong>Characteristics</strong>: Intense competition, rapid changes in market conditions, and constant pressure on pricing and innovation.</li>
+<li><strong>Strategies</strong>:
+<ul>
+<li>Focus on speed and agility in product development and marketing.</li>
+<li>Constant innovation and improvement of offerings.</li>
+<li>Use of aggressive marketing and promotional tactics, including price wars or heavy discounts.</li>
+</ul></li>
+</ul>
+</section>
+<section id="regulated-market" class="level3">
+<h3 class="anchored" data-anchor-id="regulated-market">8. <strong>Regulated Market</strong></h3>
+<ul>
+<li><strong>Characteristics</strong>: Heavy government or industry regulation, affecting how businesses can operate. Common in industries like healthcare, finance, and energy.</li>
+<li><strong>Strategies</strong>:
+<ul>
+<li>Focus on compliance and understanding legal frameworks.</li>
+<li>Build strong relationships with regulatory bodies.</li>
+<li>Use regulation to create barriers to entry for competitors.</li>
+</ul></li>
+</ul>
+</section>
+<section id="summary-of-strategies-by-regime" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-strategies-by-regime">Summary of Strategies by Regime:</h3>
+<ol type="1">
+<li><strong>Emerging Market</strong>: First-mover advantage, market education.</li>
+<li><strong>Growth Market</strong>: Scaling, differentiation, brand building.</li>
+<li><strong>Mature Market</strong>: Customer retention, innovation, cost optimization.</li>
+<li><strong>Declining Market</strong>: Cost management, niche focus, exit strategies.</li>
+<li><strong>Fragmented Market</strong>: Niche targeting, personalized marketing.</li>
+<li><strong>Consolidated Market</strong>: Economies of scale, defensive tactics.</li>
+<li><strong>Hyper-Competitive Market</strong>: Speed, innovation, aggressive pricing.</li>
+<li><strong>Regulated Market</strong>: Compliance, relationship building, strategic lobbying.</li>
+</ol>
+<p>Each market regime requires businesses to tailor their marketing strategies to the specific dynamics of the market, focusing on growth, defense, or transformation depending on the opportunities and challenges present.</p>
+<p>If this framework resonates with what you’re asking about, feel free to ask for further clarification or specific examples!</p>
+</section>
+</section>
+<section id="another-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="another-prompt">Another Prompt:</h2>
+<blockquote class="blockquote">
+<p>Assume it is bull market what type of trading system should we build</p>
+</blockquote>
+</section>
+<section id="nd-respnse" class="level2">
+<h2 class="anchored" data-anchor-id="nd-respnse">2nd Respnse:</h2>
+<p>In a <strong>bull market</strong>, where prices are generally rising, optimism prevails, and investor confidence is high, the goal is to capitalize on upward price movements. The trading system you build in a bull market should be designed to:</p>
+<ol type="1">
+<li><strong>Maximize gains from rising asset prices</strong>.</li>
+<li><strong>Minimize exposure to potential reversals</strong>.</li>
+<li><strong>Take advantage of momentum and trend-following strategies</strong>.</li>
+</ol>
+<p>Here’s a breakdown of the type of <strong>trading system</strong> you might build in a bull market:</p>
+<section id="trend-following-system" class="level3">
+<h3 class="anchored" data-anchor-id="trend-following-system">1. <strong>Trend-Following System</strong></h3>
+<ul>
+<li><strong>Description</strong>: A trend-following system takes advantage of sustained price movements in one direction (upward in this case). The key assumption is that “the trend is your friend,” meaning prices will likely continue rising during a bull market.</li>
+<li><strong>Components</strong>:
+<ul>
+<li><strong>Moving Averages</strong>: Use indicators like <strong>50-day or 200-day moving averages</strong> to detect upward trends. Buy when the short-term moving average crosses above the long-term moving average (Golden Cross).</li>
+<li><strong>ADX (Average Directional Index)</strong>: Use ADX to measure the strength of the trend. Enter positions when the ADX confirms a strong upward trend.</li>
+<li><strong>Breakout Strategies</strong>: Enter positions when the price breaks above a key resistance level.</li>
+</ul></li>
+<li><strong>Risk Management</strong>:
+<ul>
+<li>Use trailing stop-losses to lock in profits as the trend continues.</li>
+<li>Exit positions if the trend reverses or if momentum indicators (like RSI) show overbought conditions.</li>
+</ul></li>
+</ul>
+</section>
+<section id="momentum-trading-system" class="level3">
+<h3 class="anchored" data-anchor-id="momentum-trading-system">2. <strong>Momentum Trading System</strong></h3>
+<ul>
+<li><strong>Description</strong>: Momentum traders aim to capitalize on the continuation of existing trends. In a bull market, assets that have already performed well may continue to do so due to positive sentiment.</li>
+<li><strong>Components</strong>:
+<ul>
+<li><strong>RSI (Relative Strength Index)</strong>: Look for assets with strong momentum but avoid overbought zones (RSI &gt; 70). Buy on dips when the RSI pulls back slightly but stays in a bullish range.</li>
+<li><strong>MACD (Moving Average Convergence Divergence)</strong>: Use MACD crossovers to identify strong buying signals. Look for upward crossovers where the MACD line crosses above the signal line.</li>
+</ul></li>
+<li><strong>Risk Management</strong>:
+<ul>
+<li>Monitor for divergence between price and momentum indicators, which could signal a reversal.</li>
+<li>Set stop-loss orders just below recent support levels to avoid major losses if momentum fades.</li>
+</ul></li>
+</ul>
+</section>
+<section id="swing-trading-system" class="level3">
+<h3 class="anchored" data-anchor-id="swing-trading-system">3. <strong>Swing Trading System</strong></h3>
+<ul>
+<li><strong>Description</strong>: Swing trading focuses on capturing short- to medium-term price movements within a broader upward trend. Traders in a bull market look to buy the dips and sell on the short-term peaks.</li>
+<li><strong>Components</strong>:
+<ul>
+<li><strong>Fibonacci Retracement</strong>: Use Fibonacci levels (like 38.2%, 50%, 61.8%) to identify key support levels where price is likely to rebound after a short-term pullback.</li>
+<li><strong>Stochastic Oscillator</strong>: Use this to identify when an asset is oversold in a bullish trend. Buy when the stochastic indicates an oversold condition (below 20) during a pullback.</li>
+<li><strong>Bollinger Bands</strong>: Buy when the price touches the lower Bollinger Band and sell near the upper band, assuming the market will revert to the mean in the short term.</li>
+</ul></li>
+<li><strong>Risk Management</strong>:
+<ul>
+<li>Use tight stop-losses below the most recent swing low.</li>
+<li>Ensure you’re trading in the direction of the overall trend (buy dips, don’t short).</li>
+</ul></li>
+</ul>
+</section>
+<section id="breakout-trading-system" class="level3">
+<h3 class="anchored" data-anchor-id="breakout-trading-system">4. <strong>Breakout Trading System</strong></h3>
+<ul>
+<li><strong>Description</strong>: In a bull market, price often breaks through resistance levels as demand outstrips supply. A breakout trading system capitalizes on these sharp moves.</li>
+<li><strong>Components</strong>:
+<ul>
+<li><strong>Support and Resistance Levels</strong>: Identify key levels of resistance where prices have struggled to rise. Enter long trades when the price breaks through resistance on strong volume.</li>
+<li><strong>Volume Indicators</strong>: Confirm breakouts with increasing volume, which indicates a strong breakout and reduces the risk of false signals.</li>
+<li><strong>ATR (Average True Range)</strong>: Use ATR to set targets and stop-losses based on the volatility of the asset.</li>
+</ul></li>
+<li><strong>Risk Management</strong>:
+<ul>
+<li>Enter positions only when a breakout is confirmed with volume.</li>
+<li>Use stop-losses just below the breakout level to protect against false breakouts.</li>
+</ul></li>
+</ul>
+</section>
+<section id="buy-and-hold-system-position-trading" class="level3">
+<h3 class="anchored" data-anchor-id="buy-and-hold-system-position-trading">5. <strong>Buy and Hold System (Position Trading)</strong></h3>
+<ul>
+<li><strong>Description</strong>: In a sustained bull market, long-term investors may opt for a buy-and-hold strategy, riding the overall upward trend in stock prices or assets over a long period.</li>
+<li><strong>Components</strong>:
+<ul>
+<li><strong>Fundamental Analysis</strong>: Focus on buying fundamentally strong assets that are expected to grow over time.</li>
+<li><strong>Technical Confirmation</strong>: Use technical indicators like moving averages to confirm that the asset is in an uptrend.</li>
+</ul></li>
+<li><strong>Risk Management</strong>:
+<ul>
+<li>Long-term investors may set stop-losses at significant technical levels, such as below the 200-day moving average, to protect against major market downturns.</li>
+<li>Diversify across sectors or asset classes to spread risk.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sector-rotation-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="sector-rotation-strategy">6. <strong>Sector Rotation Strategy</strong></h3>
+<ul>
+<li><strong>Description</strong>: Different sectors of the market may outperform at various stages of a bull market. A sector rotation strategy takes advantage of this by investing in the best-performing sectors.</li>
+<li><strong>Components</strong>:
+<ul>
+<li><strong>Sector ETFs or Stocks</strong>: Invest in leading sectors, such as technology or consumer discretionary, which often outperform in a bull market.</li>
+<li><strong>Relative Strength Analysis</strong>: Identify which sectors are gaining the most strength compared to the overall market.</li>
+</ul></li>
+<li><strong>Risk Management</strong>:
+<ul>
+<li>Rotate out of underperforming sectors and into sectors showing new strength.</li>
+<li>Set sector-specific stop-losses to minimize risk as market dynamics shift.</li>
+</ul></li>
+</ul>
+</section>
+<section id="leveraged-trading-system" class="level3">
+<h3 class="anchored" data-anchor-id="leveraged-trading-system">7. <strong>Leveraged Trading System</strong></h3>
+<ul>
+<li><strong>Description</strong>: In a strong bull market, some traders may use leverage (borrowed capital) to amplify gains. This is a more aggressive strategy and carries higher risk.</li>
+<li><strong>Components</strong>:
+<ul>
+<li><strong>Leveraged ETFs</strong>: Consider using leveraged ETFs (e.g., 2x or 3x leverage) to maximize returns on a rising market.</li>
+<li><strong>Options Trading</strong>: Buy <strong>call options</strong> to gain exposure to the upside with limited risk. Consider <strong>covered call</strong> strategies to enhance returns on held assets.</li>
+</ul></li>
+<li><strong>Risk Management</strong>:
+<ul>
+<li>Carefully manage the use of leverage to avoid large losses.</li>
+<li>Use stop-losses and regularly monitor positions to avoid getting caught in sudden market reversals.</li>
+</ul></li>
+</ul>
+</section>
+<section id="risk-management-across-all-systems" class="level3">
+<h3 class="anchored" data-anchor-id="risk-management-across-all-systems">Risk Management Across All Systems:</h3>
+<ul>
+<li><strong>Trailing Stop-Loss</strong>: This is crucial in a bull market. As the price rises, the stop-loss moves up, protecting gains while allowing the position to continue benefiting from the uptrend.</li>
+<li><strong>Position Sizing</strong>: Allocate capital carefully, ensuring no single trade can significantly damage your portfolio if the market turns unexpectedly.</li>
+<li><strong>Diversification</strong>: Even in a bull market, it’s wise to diversify across sectors and asset classes to reduce risk.</li>
+</ul>
+</section>
+<section id="summary-of-trading-system-strategies-for-a-bull-market" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-trading-system-strategies-for-a-bull-market">Summary of Trading System Strategies for a Bull Market:</h3>
+<ol type="1">
+<li><strong>Trend-Following</strong>: Ride the upward trend with moving averages and ADX.</li>
+<li><strong>Momentum Trading</strong>: Focus on strong-performing assets with indicators like RSI and MACD.</li>
+<li><strong>Swing Trading</strong>: Buy on dips and sell on peaks using oscillators and Bollinger Bands.</li>
+<li><strong>Breakout Trading</strong>: Buy on breakouts above resistance, confirmed by volume.</li>
+<li><strong>Buy and Hold</strong>: Long-term investment in fundamentally strong assets.</li>
+<li><strong>Sector Rotation</strong>: Invest in leading sectors with relative strength analysis.</li>
+<li><strong>Leveraged Trading</strong>: Use leveraged ETFs and options to amplify gains (for advanced traders).</li>
+</ol>
+<p>In summary, the trading system for a bull market should be <strong>biased toward buying and holding</strong>, with a focus on <strong>riding the upward momentum</strong>, while also having risk management techniques to protect gains and minimize losses in the case of sudden reversals.</p>
+</section>
+</section>
+<section id="another-prompt-1" class="level2">
+<h2 class="anchored" data-anchor-id="another-prompt-1">Another Prompt</h2>
+<blockquote class="blockquote">
+<ul>
+<li>Breakout Trading System Description: In a bull market, price often breaks through resistance levels as demand outstrips supply. A breakout trading system capitalizes on these sharp moves. Components: Support and Resistance Levels: Identify key levels of resistance where prices have struggled to rise. Enter long trades when the price breaks through resistance on strong volume.</li>
+</ul>
+</blockquote>
+<p>Volume Indicators: Confirm breakouts with increasing volume, which indicates a strong breakout and reduces the risk of false signals. ATR (Average True Range): Use ATR to set targets and stop-losses based on the volatility of the asset.</p>
+<p>we are going to build off the above give me 10 great ideas building a breakout system</p>
+</section>
+<section id="ideas-for-building-a-breakout-trading-system" class="level2">
+<h2 class="anchored" data-anchor-id="ideas-for-building-a-breakout-trading-system">10 Ideas for Building a Breakout Trading System</h2>
+<section id="multiple-timeframe-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-timeframe-analysis">1. <strong>Multiple Timeframe Analysis:</strong></h3>
+<ul>
+<li>Combine analysis from different timeframes (e.g., daily, weekly, monthly) to identify more significant breakouts.</li>
+<li>A breakout on a higher timeframe can confirm a breakout on a lower timeframe.</li>
+</ul>
+</section>
+<section id="backtesting" class="level3">
+<h3 class="anchored" data-anchor-id="backtesting">2. <strong>Backtesting:</strong></h3>
+<ul>
+<li>Test your system historically to assess its performance and identify potential flaws.</li>
+<li>Adjust parameters based on backtest results.</li>
+</ul>
+</section>
+<section id="risk-management" class="level3">
+<h3 class="anchored" data-anchor-id="risk-management">3. <strong>Risk Management:</strong></h3>
+<ul>
+<li>Implement strict risk management rules, including stop-loss orders and position sizing.</li>
+<li>Consider using a trailing stop to protect profits as the price moves in your favor.</li>
+</ul>
+</section>
+<section id="false-breakout-filter" class="level3">
+<h3 class="anchored" data-anchor-id="false-breakout-filter">4. <strong>False Breakout Filter:</strong></h3>
+<ul>
+<li>Use additional indicators (e.g., Bollinger Bands, MACD) to filter out false breakouts. A false breakout occurs when the price breaks through a level but fails to sustain the move.</li>
+</ul>
+</section>
+<section id="volume-profile" class="level3">
+<h3 class="anchored" data-anchor-id="volume-profile">5. <strong>Volume Profile:</strong></h3>
+<ul>
+<li>Analyze the volume profile to identify areas of congestion and potential breakout points.</li>
+<li>A breakout through a volume profile high can be a strong signal.</li>
+</ul>
+</section>
+<section id="currency-strength-index-csi" class="level3">
+<h3 class="anchored" data-anchor-id="currency-strength-index-csi">6. <strong>Currency Strength Index (CSI):</strong></h3>
+<ul>
+<li>For forex trading, use the CSI to identify currencies that are trending stronger.</li>
+<li>Favor breakouts in currencies with a strong CSI.</li>
+</ul>
+</section>
+<section id="news-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="news-analysis">7. <strong>News Analysis:</strong></h3>
+<ul>
+<li>Stay updated on market news and events that could impact the asset you’re trading.</li>
+<li>Positive news can reinforce a breakout, while negative news can lead to a pullback.</li>
+</ul>
+</section>
+<section id="technical-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="technical-indicators">8. <strong>Technical Indicators:</strong></h3>
+<ul>
+<li>Experiment with other technical indicators to enhance your system.</li>
+<li>Consider using the Relative Strength Index (RSI) to identify overbought or oversold conditions.</li>
+</ul>
+</section>
+<section id="algorithmic-trading" class="level3">
+<h3 class="anchored" data-anchor-id="algorithmic-trading">9. <strong>Algorithmic Trading:</strong></h3>
+<ul>
+<li>If you have programming skills, consider automating your breakout trading system.</li>
+<li>This can help execute trades quickly and efficiently.</li>
+</ul>
+</section>
+<section id="continuous-refinement" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-refinement">10. <strong>Continuous Refinement:</strong></h3>
+<ul>
+<li>Regularly review and refine your system based on market conditions and performance.</li>
+<li>Be adaptable and willing to make changes as needed.</li>
+</ul>
+<p>By incorporating these ideas into your breakout trading system, you can improve its effectiveness and reduce the risk of false signals. Remember to always test your system thoroughly before using it with real money.</p>
+</section>
+</section>
+<section id="my-stratergy" class="level2">
+<h2 class="anchored" data-anchor-id="my-stratergy">My Stratergy:</h2>
+<ul>
+<li>Look at the daily resitence</li>
+<li>watch breakouts and place the order between resitence and breakoutpoints</li>
+<li>ATR as stop loss</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/HafizAhmadHassan\.github\.io\/fastrading");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/HafizAhmadHassan/fastrading/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

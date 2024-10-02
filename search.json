@@ -1,0 +1,640 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "fastrading",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "Blogs",
+      "fastrading"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "fastrading",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall fastrading in Development mode\n# make sure fastrading package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to fastrading\n$ nbdev_prepare",
+    "crumbs": [
+      "Blogs",
+      "fastrading"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "fastrading",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/HafizAhmadHassan/fastrading.git\nor from conda\n$ conda install -c HafizAhmadHassan fastrading\nor from pypi\n$ pip install fastrading\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively.",
+    "crumbs": [
+      "Blogs",
+      "fastrading"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "fastrading",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2",
+    "crumbs": [
+      "Blogs",
+      "fastrading"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "",
+    "text": "See AI :\nOriginal : Paper Link",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#background-and-motivation",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#background-and-motivation",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "1.1 Background and Motivation",
+    "text": "1.1 Background and Motivation\nIn this article, we use deep learning methods to solve a real-world problem closely related to trading applications, namely intraday volatility forecasting. Our study shows that the intuition-driven approach combined with the divide-and-conquer approach led by domain knowledge provides great potentials.\nVolatility modelling is one of the fundamental problems in the financial world. High-frequency trading algorithms need to predict intraday volatility to make real-time trading decisions, but practitioners often utilise ranges as a proxy of volatility in real trading.\nDeep neural networks (DNNs) and recurrent neural networks (RNNs) are two popular methods for volatility forecasting. DNN is a common network architecture that takes multivariate features as inputs and feeds them into fully connected layers, while RNNs capture the temporal information of data.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#patterns-in-the-intraday-ranges",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#patterns-in-the-intraday-ranges",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "1.2 Patterns in the Intraday Ranges",
+    "text": "1.2 Patterns in the Intraday Ranges\nFX ranges exhibit strong patterns, usually explained by economic reasons. Our main goal is to capture these economically linked intuitions in our prediction model.\nThe FX market is heavily influenced by macroeconomic news and events, and volatility clustering and cross-currency correlations are often observed.\nThe patterns can be summarised into three main categories: time-based seasonality, intraday auto-correlations, and cross-currency pair correlations.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#the-road-map-for-deep-learning-of-fx-ranges",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#the-road-map-for-deep-learning-of-fx-ranges",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "1.3 The Road Map for Deep Learning of FX Ranges",
+    "text": "1.3 The Road Map for Deep Learning of FX Ranges\nDespite the complexity of the task, neural networks are a perfect candidate for generating range functions in real time. Neural networks’ modular nature allows us to model the three main patterns individually using a divide-and-conquer approach.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#the-structure-of-the-paper",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#the-structure-of-the-paper",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "1.4 The Structure of the Paper",
+    "text": "1.4 The Structure of the Paper\nThis paper presents a neural network model for range forecasting. It is organised as follows: Section 3 provides an empirical analysis, and Section 4 presents a numerical experiment.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#weekly-seasonality",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#weekly-seasonality",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "2.1.1 Weekly Seasonality",
+    "text": "2.1.1 Weekly Seasonality\nTrading volatility is slightly lower on Monday and Tuesday than on other days, and higher on Friday, Wednesday, and Thursday.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#intraday-and-interday-auto-correlation",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#intraday-and-interday-auto-correlation",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "2.2 Intraday and Interday Auto-correlation",
+    "text": "2.2 Intraday and Interday Auto-correlation\nIntraday auto-correlations reflect latency in trading volatility, while interday auto-correlations show daily seasonality of volatility.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#dnn-and-time-based-patterns",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#dnn-and-time-based-patterns",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "3.1 DNN and Time-based Patterns",
+    "text": "3.1 DNN and Time-based Patterns\nTo predict trading volatility, we consider the timestamp ( t ), day of the week ( t_D ), and month ( t_D ) as input factors, using a multi-layer artificial neural network (DNN) to learn the next minutely volatility.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#lstm-and-auto-correlations",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#lstm-and-auto-correlations",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "3.2 LSTM and Auto-correlations",
+    "text": "3.2 LSTM and Auto-correlations\nWe use the lagged values of log range in the previous ( p_t ) minutes and ( p_d ) days as the input ( y_t^D ) and ( z_t^D ) respectively.\nThe LSTM model, known for its strength in analyzing sequential data, is used to predict the log range.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#lstm-and-multi-scale-time-dependence",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#lstm-and-multi-scale-time-dependence",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "3.3 2-LSTM and Multi-scale Time Dependence",
+    "text": "3.3 2-LSTM and Multi-scale Time Dependence\nTo capture both seasonality of the volatility simultaneously, we propose the multi-scale LSTM model (2-LSTM). It applies two LSTM models to ( y_t^D ) and ( z_t^D ), then applies the ( l )-layer DNN to the concatenated output.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#p-pairs-learning-2-lstm-and-cross-currency-pair-correlations",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#p-pairs-learning-2-lstm-and-cross-currency-pair-correlations",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "3.4 p-Pairs-learning 2-LSTM and Cross-currency Pair Correlations",
+    "text": "3.4 p-Pairs-learning 2-LSTM and Cross-currency Pair Correlations\nWe propose a 2-LSTM model to predict the volatility of ( p ) currency pairs by coupling information from non-liquid pairs with more liquid pairs that share the same currency base.\nThe p-Pairs-learning 2-LSTM model uses historical information from other pairs sharing the same currency base to capture cross-currency pair correlations.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#network-architecture",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#network-architecture",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "4.1 Network Architecture",
+    "text": "4.1 Network Architecture\nThe proposed p-Pairs-learning 2-LSTM method consistently outperforms other models in terms of MSE on testing sets. LSTM-based methods noticeably reduce MSE compared to plain DNN by incorporating historical volatility information.\nIn Table 3 of pairwise DM test results, we observe that 2-LSTM and 2-Pairs-learning outperform other methods for EURUSD, EURSEK, USDJPY, and USDMXN, while 4-Pairs-learning has statistically similar performance to other models.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#comparison-between-lstm-based-models",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#comparison-between-lstm-based-models",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "4.3 Comparison Between LSTM-based Models",
+    "text": "4.3 Comparison Between LSTM-based Models\nThe 2-LSTM model, using intraday historical data and a recurrent structure, shows significant improvement over LSTMD, though it doesn’t significantly outperform LSTMt.\nFor 2-Pairs learning, the prediction results improve slightly for less liquid currencies. For 4-Pairs learning, the results are significantly boosted compared to 2-Pairs learning when considering MSE averages.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#sensitivity-analysis",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#sensitivity-analysis",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "4.4 Sensitivity Analysis",
+    "text": "4.4 Sensitivity Analysis\nWe study the sensitivity of 4-Pairs-learning 2-LSTM to lag value ( p ). The MSE on testing data decreases as ( p ) increases.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#a.1-supervised-learning-framework",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#a.1-supervised-learning-framework",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "A.1 Supervised Learning Framework",
+    "text": "A.1 Supervised Learning Framework\nSupervised learning aims to find the optimal parameters for a continuous map between input and output, such that the predicted output is as close as possible to the actual output.\nCross entropy loss is popular for classification, while mean squared error (MSE) is used for regression problems.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#a.2.1-deep-neural-network",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#a.2.1-deep-neural-network",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "A.2.1 Deep Neural Network",
+    "text": "A.2.1 Deep Neural Network\nDeep neural networks (DNNs) are multi-layer networks with ( L &gt; 2 ), defined recursively using an activation function, weight matrix, and bias term.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-27-UOSthesis/index.html#a.2.2-long-short-term-memory",
+    "href": "blog/posts/2024-09-27-UOSthesis/index.html#a.2.2-long-short-term-memory",
+    "title": "Predicting Forex Volatility Using Deep Learning",
+    "section": "A.2.2 Long Short-Term Memory",
+    "text": "A.2.2 Long Short-Term Memory\nLSTM consists of an input layer, a hidden layer, and an output layer. Each memory cell has three gates: input, output, and forget.\nWe compute the MSE of AR(( p )) models for different currency pairs using the LSTM model.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-27-UOSthesis"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-AI-Bot/index.html",
+    "href": "blog/posts/2024-09-30-AI-Bot/index.html",
+    "title": "A practical implementation of AI Bot",
+    "section": "",
+    "text": "Original : Paper Link",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-AI-Bot"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-AI-Bot/index.html#go-to-chatgpt-and-put-the-following-command",
+    "href": "blog/posts/2024-09-30-AI-Bot/index.html#go-to-chatgpt-and-put-the-following-command",
+    "title": "A practical implementation of AI Bot",
+    "section": "Go to chatgpt and put the following command :",
+    "text": "Go to chatgpt and put the following command :\n\njinn simmons says there are 8 marketing regimes which are those regimes and what type of stratergies do we run in each regime",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-AI-Bot"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-AI-Bot/index.html#respnse-will-be",
+    "href": "blog/posts/2024-09-30-AI-Bot/index.html#respnse-will-be",
+    "title": "A practical implementation of AI Bot",
+    "section": "Respnse will be :",
+    "text": "Respnse will be :\nIt sounds like you’re referring to Jim Simmons (often mistakenly spelled “Jinn Simmons”), who is an expert in strategy and business, particularly in fields like marketing and competitive dynamics. He proposed a framework for understanding different market regimes, where businesses need to adapt their strategies based on the characteristics and dynamics of each regime.\nWhile the specific concept of “8 market regimes” is not universally established in standard marketing literature, I can offer a general interpretation based on typical strategic marketing frameworks that align with the idea of market regimes.\nHere’s a possible breakdown of the 8 market regimes and corresponding strategies:\n\n1. Emerging Market\n\nCharacteristics: The market is new, growing rapidly, and has few established players. There is high uncertainty but lots of potential.\nStrategies:\n\nFocus on market penetration and creating brand awareness.\nInnovate to establish a first-mover advantage.\nEducate the market and consumers on new products or services.\n\n\n\n\n2. Growth Market\n\nCharacteristics: The market is expanding, with increasing demand and new entrants. There’s strong competition as companies try to gain market share.\nStrategies:\n\nInvest in scaling operations and increasing market share.\nEmphasize differentiation to stand out from competitors.\nHeavy use of promotion and advertising to capture demand.\n\n\n\n\n3. Mature Market\n\nCharacteristics: The market is stable, with well-established players. Growth has slowed down, and market share is harder to win.\nStrategies:\n\nFocus on customer retention and loyalty programs.\nOptimize efficiency and cost reduction.\nInnovate within the existing product lines to maintain interest.\nEngage in competitive pricing and promotions to maintain market share.\n\n\n\n\n4. Declining Market\n\nCharacteristics: Market demand is shrinking due to technological advancements, changing consumer preferences, or other factors.\nStrategies:\n\nManage decline by cutting costs and maintaining profitability.\nFocus on niche markets or diversify into new products or services.\nConsider exit strategies or mergers and acquisitions to stay competitive.\n\n\n\n\n5. Fragmented Market\n\nCharacteristics: The market consists of many small players with no dominant leader, and customer preferences are highly varied.\nStrategies:\n\nNiche targeting and hyper-personalization.\nLocalized or tailored marketing efforts.\nFocus on flexibility and adaptability in product offerings.\nAcquisition of smaller competitors to consolidate market share.\n\n\n\n\n6. Consolidated Market\n\nCharacteristics: A few large players dominate the market, with high barriers to entry for newcomers.\nStrategies:\n\nUse economies of scale to drive down costs and improve margins.\nDefensive strategies to protect market share from smaller entrants.\nConsider strategic alliances or partnerships to stay competitive.\n\n\n\n\n7. Hyper-Competitive Market\n\nCharacteristics: Intense competition, rapid changes in market conditions, and constant pressure on pricing and innovation.\nStrategies:\n\nFocus on speed and agility in product development and marketing.\nConstant innovation and improvement of offerings.\nUse of aggressive marketing and promotional tactics, including price wars or heavy discounts.\n\n\n\n\n8. Regulated Market\n\nCharacteristics: Heavy government or industry regulation, affecting how businesses can operate. Common in industries like healthcare, finance, and energy.\nStrategies:\n\nFocus on compliance and understanding legal frameworks.\nBuild strong relationships with regulatory bodies.\nUse regulation to create barriers to entry for competitors.\n\n\n\n\nSummary of Strategies by Regime:\n\nEmerging Market: First-mover advantage, market education.\nGrowth Market: Scaling, differentiation, brand building.\nMature Market: Customer retention, innovation, cost optimization.\nDeclining Market: Cost management, niche focus, exit strategies.\nFragmented Market: Niche targeting, personalized marketing.\nConsolidated Market: Economies of scale, defensive tactics.\nHyper-Competitive Market: Speed, innovation, aggressive pricing.\nRegulated Market: Compliance, relationship building, strategic lobbying.\n\nEach market regime requires businesses to tailor their marketing strategies to the specific dynamics of the market, focusing on growth, defense, or transformation depending on the opportunities and challenges present.\nIf this framework resonates with what you’re asking about, feel free to ask for further clarification or specific examples!",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-AI-Bot"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-AI-Bot/index.html#another-prompt",
+    "href": "blog/posts/2024-09-30-AI-Bot/index.html#another-prompt",
+    "title": "A practical implementation of AI Bot",
+    "section": "Another Prompt:",
+    "text": "Another Prompt:\n\nAssume it is bull market what type of trading system should we build",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-AI-Bot"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-AI-Bot/index.html#nd-respnse",
+    "href": "blog/posts/2024-09-30-AI-Bot/index.html#nd-respnse",
+    "title": "A practical implementation of AI Bot",
+    "section": "2nd Respnse:",
+    "text": "2nd Respnse:\nIn a bull market, where prices are generally rising, optimism prevails, and investor confidence is high, the goal is to capitalize on upward price movements. The trading system you build in a bull market should be designed to:\n\nMaximize gains from rising asset prices.\nMinimize exposure to potential reversals.\nTake advantage of momentum and trend-following strategies.\n\nHere’s a breakdown of the type of trading system you might build in a bull market:\n\n1. Trend-Following System\n\nDescription: A trend-following system takes advantage of sustained price movements in one direction (upward in this case). The key assumption is that “the trend is your friend,” meaning prices will likely continue rising during a bull market.\nComponents:\n\nMoving Averages: Use indicators like 50-day or 200-day moving averages to detect upward trends. Buy when the short-term moving average crosses above the long-term moving average (Golden Cross).\nADX (Average Directional Index): Use ADX to measure the strength of the trend. Enter positions when the ADX confirms a strong upward trend.\nBreakout Strategies: Enter positions when the price breaks above a key resistance level.\n\nRisk Management:\n\nUse trailing stop-losses to lock in profits as the trend continues.\nExit positions if the trend reverses or if momentum indicators (like RSI) show overbought conditions.\n\n\n\n\n2. Momentum Trading System\n\nDescription: Momentum traders aim to capitalize on the continuation of existing trends. In a bull market, assets that have already performed well may continue to do so due to positive sentiment.\nComponents:\n\nRSI (Relative Strength Index): Look for assets with strong momentum but avoid overbought zones (RSI &gt; 70). Buy on dips when the RSI pulls back slightly but stays in a bullish range.\nMACD (Moving Average Convergence Divergence): Use MACD crossovers to identify strong buying signals. Look for upward crossovers where the MACD line crosses above the signal line.\n\nRisk Management:\n\nMonitor for divergence between price and momentum indicators, which could signal a reversal.\nSet stop-loss orders just below recent support levels to avoid major losses if momentum fades.\n\n\n\n\n3. Swing Trading System\n\nDescription: Swing trading focuses on capturing short- to medium-term price movements within a broader upward trend. Traders in a bull market look to buy the dips and sell on the short-term peaks.\nComponents:\n\nFibonacci Retracement: Use Fibonacci levels (like 38.2%, 50%, 61.8%) to identify key support levels where price is likely to rebound after a short-term pullback.\nStochastic Oscillator: Use this to identify when an asset is oversold in a bullish trend. Buy when the stochastic indicates an oversold condition (below 20) during a pullback.\nBollinger Bands: Buy when the price touches the lower Bollinger Band and sell near the upper band, assuming the market will revert to the mean in the short term.\n\nRisk Management:\n\nUse tight stop-losses below the most recent swing low.\nEnsure you’re trading in the direction of the overall trend (buy dips, don’t short).\n\n\n\n\n4. Breakout Trading System\n\nDescription: In a bull market, price often breaks through resistance levels as demand outstrips supply. A breakout trading system capitalizes on these sharp moves.\nComponents:\n\nSupport and Resistance Levels: Identify key levels of resistance where prices have struggled to rise. Enter long trades when the price breaks through resistance on strong volume.\nVolume Indicators: Confirm breakouts with increasing volume, which indicates a strong breakout and reduces the risk of false signals.\nATR (Average True Range): Use ATR to set targets and stop-losses based on the volatility of the asset.\n\nRisk Management:\n\nEnter positions only when a breakout is confirmed with volume.\nUse stop-losses just below the breakout level to protect against false breakouts.\n\n\n\n\n5. Buy and Hold System (Position Trading)\n\nDescription: In a sustained bull market, long-term investors may opt for a buy-and-hold strategy, riding the overall upward trend in stock prices or assets over a long period.\nComponents:\n\nFundamental Analysis: Focus on buying fundamentally strong assets that are expected to grow over time.\nTechnical Confirmation: Use technical indicators like moving averages to confirm that the asset is in an uptrend.\n\nRisk Management:\n\nLong-term investors may set stop-losses at significant technical levels, such as below the 200-day moving average, to protect against major market downturns.\nDiversify across sectors or asset classes to spread risk.\n\n\n\n\n6. Sector Rotation Strategy\n\nDescription: Different sectors of the market may outperform at various stages of a bull market. A sector rotation strategy takes advantage of this by investing in the best-performing sectors.\nComponents:\n\nSector ETFs or Stocks: Invest in leading sectors, such as technology or consumer discretionary, which often outperform in a bull market.\nRelative Strength Analysis: Identify which sectors are gaining the most strength compared to the overall market.\n\nRisk Management:\n\nRotate out of underperforming sectors and into sectors showing new strength.\nSet sector-specific stop-losses to minimize risk as market dynamics shift.\n\n\n\n\n7. Leveraged Trading System\n\nDescription: In a strong bull market, some traders may use leverage (borrowed capital) to amplify gains. This is a more aggressive strategy and carries higher risk.\nComponents:\n\nLeveraged ETFs: Consider using leveraged ETFs (e.g., 2x or 3x leverage) to maximize returns on a rising market.\nOptions Trading: Buy call options to gain exposure to the upside with limited risk. Consider covered call strategies to enhance returns on held assets.\n\nRisk Management:\n\nCarefully manage the use of leverage to avoid large losses.\nUse stop-losses and regularly monitor positions to avoid getting caught in sudden market reversals.\n\n\n\n\nRisk Management Across All Systems:\n\nTrailing Stop-Loss: This is crucial in a bull market. As the price rises, the stop-loss moves up, protecting gains while allowing the position to continue benefiting from the uptrend.\nPosition Sizing: Allocate capital carefully, ensuring no single trade can significantly damage your portfolio if the market turns unexpectedly.\nDiversification: Even in a bull market, it’s wise to diversify across sectors and asset classes to reduce risk.\n\n\n\nSummary of Trading System Strategies for a Bull Market:\n\nTrend-Following: Ride the upward trend with moving averages and ADX.\nMomentum Trading: Focus on strong-performing assets with indicators like RSI and MACD.\nSwing Trading: Buy on dips and sell on peaks using oscillators and Bollinger Bands.\nBreakout Trading: Buy on breakouts above resistance, confirmed by volume.\nBuy and Hold: Long-term investment in fundamentally strong assets.\nSector Rotation: Invest in leading sectors with relative strength analysis.\nLeveraged Trading: Use leveraged ETFs and options to amplify gains (for advanced traders).\n\nIn summary, the trading system for a bull market should be biased toward buying and holding, with a focus on riding the upward momentum, while also having risk management techniques to protect gains and minimize losses in the case of sudden reversals.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-AI-Bot"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-AI-Bot/index.html#another-prompt-1",
+    "href": "blog/posts/2024-09-30-AI-Bot/index.html#another-prompt-1",
+    "title": "A practical implementation of AI Bot",
+    "section": "Another Prompt",
+    "text": "Another Prompt\n\n\nBreakout Trading System Description: In a bull market, price often breaks through resistance levels as demand outstrips supply. A breakout trading system capitalizes on these sharp moves. Components: Support and Resistance Levels: Identify key levels of resistance where prices have struggled to rise. Enter long trades when the price breaks through resistance on strong volume.\n\n\nVolume Indicators: Confirm breakouts with increasing volume, which indicates a strong breakout and reduces the risk of false signals. ATR (Average True Range): Use ATR to set targets and stop-losses based on the volatility of the asset.\nwe are going to build off the above give me 10 great ideas building a breakout system",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-AI-Bot"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-AI-Bot/index.html#ideas-for-building-a-breakout-trading-system",
+    "href": "blog/posts/2024-09-30-AI-Bot/index.html#ideas-for-building-a-breakout-trading-system",
+    "title": "A practical implementation of AI Bot",
+    "section": "10 Ideas for Building a Breakout Trading System",
+    "text": "10 Ideas for Building a Breakout Trading System\n\n1. Multiple Timeframe Analysis:\n\nCombine analysis from different timeframes (e.g., daily, weekly, monthly) to identify more significant breakouts.\nA breakout on a higher timeframe can confirm a breakout on a lower timeframe.\n\n\n\n2. Backtesting:\n\nTest your system historically to assess its performance and identify potential flaws.\nAdjust parameters based on backtest results.\n\n\n\n3. Risk Management:\n\nImplement strict risk management rules, including stop-loss orders and position sizing.\nConsider using a trailing stop to protect profits as the price moves in your favor.\n\n\n\n4. False Breakout Filter:\n\nUse additional indicators (e.g., Bollinger Bands, MACD) to filter out false breakouts. A false breakout occurs when the price breaks through a level but fails to sustain the move.\n\n\n\n5. Volume Profile:\n\nAnalyze the volume profile to identify areas of congestion and potential breakout points.\nA breakout through a volume profile high can be a strong signal.\n\n\n\n6. Currency Strength Index (CSI):\n\nFor forex trading, use the CSI to identify currencies that are trending stronger.\nFavor breakouts in currencies with a strong CSI.\n\n\n\n7. News Analysis:\n\nStay updated on market news and events that could impact the asset you’re trading.\nPositive news can reinforce a breakout, while negative news can lead to a pullback.\n\n\n\n8. Technical Indicators:\n\nExperiment with other technical indicators to enhance your system.\nConsider using the Relative Strength Index (RSI) to identify overbought or oversold conditions.\n\n\n\n9. Algorithmic Trading:\n\nIf you have programming skills, consider automating your breakout trading system.\nThis can help execute trades quickly and efficiently.\n\n\n\n10. Continuous Refinement:\n\nRegularly review and refine your system based on market conditions and performance.\nBe adaptable and willing to make changes as needed.\n\nBy incorporating these ideas into your breakout trading system, you can improve its effectiveness and reduce the risk of false signals. Remember to always test your system thoroughly before using it with real money.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-AI-Bot"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-AI-Bot/index.html#my-stratergy",
+    "href": "blog/posts/2024-09-30-AI-Bot/index.html#my-stratergy",
+    "title": "A practical implementation of AI Bot",
+    "section": "My Stratergy:",
+    "text": "My Stratergy:\n\nLook at the daily resitence\nwatch breakouts and place the order between resitence and breakoutpoints\nATR as stop loss",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-AI-Bot"
+    ]
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "All Blogs",
+    "section": "",
+    "text": "FinRL-Meta\n\n\n\n\n\nA research article from AI4finace\n\n\n\n\n\nSep 28, 2024\n\n\nHafiz Ahmad Hassan\n\n\n\n\n\n\n\n\n\n\n\n\nA practical implementation of AI Bot\n\n\n\n\n\nA research article from AI4finace\n\n\n\n\n\nSep 28, 2024\n\n\nHafiz Ahmad Hassan\n\n\n\n\n\n\n\n\n\n\n\n\nCrypto by Waqar Zaka\n\n\n\n\n\nLecture notes of Waqar Zaka on Crypto Currency\n\n\n\n\n\nSep 28, 2024\n\n\nHafiz Ahmad Hassan\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting Forex Volatility Using Deep Learning\n\n\n\n\n\nA research article for forex trading\n\n\n\n\n\nSep 27, 2024\n\n\nHafiz Ahmad Hassan\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Blogs",
+      "blog"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-28-research1/index.html",
+    "href": "blog/posts/2024-09-28-research1/index.html",
+    "title": "FinRL-Meta",
+    "section": "",
+    "text": "Original : Paper Link",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-28-research1"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "Crypto is not a third-party payment transfer method and currency.\nThis is code.\n\n\n\n\n\nTransaction trail → Wallet connected to blockchain.\nIt shows all the traces of a wallet.\nTransaction verification machines like GPUs verify money, so they are rewarded for that. (investopedia.com)\nExample: Uber → “I want to give my car for rent.”\n\n\n\n\n\nBank manager works one way to another.\n\n\n\n\nCrypto Wallet → BlockChain Address.\n\n\n\n\n\nExample: Bank address, for example, Ethereum, Bitcoin.\n\n\n\n\n\nJaxx Liberty\n\n\n\n\n\nTechnical analysis (Coindesk).\nCoinban or what is happening.\n\n\n\n\n\nCheck authenticity of a coin.\nPrice market cap / circulating supply.\nMarket cap = How much people invested.\nCirculating supply.\n\n\n\n\nGold Rupees? → No, because we don’t know circulating price.\nIf XRP were $1, how would we calculate? (Price = market cap / circulating supply).\nCirculating supply should be less.\nCheck XRP news.\nLitecoin news.\n\n\n\n\n\n\n\nBuy directly from a bank.\nPaypal → It will stay in Paypal only.\n\n\n\n\n\nAvailable markets.\nOverview chart to see buying and selling trends.\n\n\n\n\nBTC has no company, XRP does. Check Twitter activity.\n\n\n\n\n\n\nWithdraw, Buy, Sell Crypto.\n\n\n\n\nIf you’re unfamiliar with banking conversations, avoid it.\n\n\n\n\n\n\nVerification: Does it come to the bank or not?\n\n\n\n\n\nAmerica → Paypal\nCoinSquare → Canada\nCoinbase",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#software",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#software",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "Crypto is not a third-party payment transfer method and currency.\nThis is code.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#blockchain",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#blockchain",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "Transaction trail → Wallet connected to blockchain.\nIt shows all the traces of a wallet.\nTransaction verification machines like GPUs verify money, so they are rewarded for that. (investopedia.com)\nExample: Uber → “I want to give my car for rent.”",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#crypto-mining",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#crypto-mining",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "Bank manager works one way to another.\n\n\n\n\nCrypto Wallet → BlockChain Address.\n\n\n\n\n\nExample: Bank address, for example, Ethereum, Bitcoin.\n\n\n\n\n\nJaxx Liberty\n\n\n\n\n\nTechnical analysis (Coindesk).\nCoinban or what is happening.\n\n\n\n\n\nCheck authenticity of a coin.\nPrice market cap / circulating supply.\nMarket cap = How much people invested.\nCirculating supply.\n\n\n\n\nGold Rupees? → No, because we don’t know circulating price.\nIf XRP were $1, how would we calculate? (Price = market cap / circulating supply).\nCirculating supply should be less.\nCheck XRP news.\nLitecoin news.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#bitcoin",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#bitcoin",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "Buy directly from a bank.\nPaypal → It will stay in Paypal only.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#coingecko",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#coingecko",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "Available markets.\nOverview chart to see buying and selling trends.\n\n\n\n\nBTC has no company, XRP does. Check Twitter activity.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#stex",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#stex",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "Withdraw, Buy, Sell Crypto.\n\n\n\n\nIf you’re unfamiliar with banking conversations, avoid it.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#binance",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#binance",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "Verification: Does it come to the bank or not?",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#bitoasis-dubai",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#bitoasis-dubai",
+    "title": "Crypto by Waqar Zaka",
+    "section": "",
+    "text": "America → Paypal\nCoinSquare → Canada\nCoinbase",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#swat-system-team",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#swat-system-team",
+    "title": "Crypto by Waqar Zaka",
+    "section": "Swat System Team",
+    "text": "Swat System Team\n\nTrading → Long-term and forget.\nBelieve in Mining.\n\n\nPaxful\n\nPakistani → Stex → Credit Card.\nCoinbase.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#mining-machine",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#mining-machine",
+    "title": "Crypto by Waqar Zaka",
+    "section": "Mining Machine",
+    "text": "Mining Machine",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#crypto-evaluation",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#crypto-evaluation",
+    "title": "Crypto by Waqar Zaka",
+    "section": "Crypto Evaluation",
+    "text": "Crypto Evaluation\n\nTPS should be determined.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#crypto-value",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#crypto-value",
+    "title": "Crypto by Waqar Zaka",
+    "section": "Crypto Value",
+    "text": "Crypto Value\n\nHow to exit and enter?\n1 buyer enters, another leaves.\n\n\nTypes of Coins:\n\nMemes Coin → “Satta coin, if it works, it works” (e.g., Shiba). See circulating supply (so high).\nDoge Coin → It will take a long time to reach $1. Doge is interchangeable with Live coin.\nStore of Value: Bitcoin, like digital gold, but with high transaction costs.\n\n\n\nProblem Solvers:\n\nInternet world: Companies like Facebook, Apple solve problems.\nSmart contract Dapps: Decentralized apps (e.g., Facebook, YouTube) can be banned. Ethereum founder introduced smart contracts.\nPayment crypto: Visa, Mastercard as replacements (like Ripple).\n\n\nExample:\n\nVisa/Mastercard isn’t using IBAN. Check if Visa/Mastercard is adopting it?\nBitcoin Cash and Dash Coin are the best.\n\n\n\n\nOracle Blockchain\n\nProvides real-world data (e.g., weather from centralized sources).\nChainlink, Skyscanner.\n\n\n\nExchange Tokens\n\nKuCoin, WazirX.\n\n\n\nPrivacy Coins\n\nMonero, Dash: Cannot be traced, used on the dark web.\nGovernments try to crack down.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#nfts",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#nfts",
+    "title": "Crypto by Waqar Zaka",
+    "section": "NFTs",
+    "text": "NFTs\n\nIt is an application.\n\n\nValue?\n\nHow to get value?\n\n\n\nWhen to Exit?\n\nBased on whether you’re doing short-term or long-term trading.\nBitcoin Halving: Happens once every 4 years (e.g., May 18, 2020).\n\n\nExample:\n\nIn Sept/Oct, Bitcoin cannot rise unless China allows crypto.\nVisa Card’s ETH use cases rise.\nCheck coins with high cap and low circulating price.\nCheck China adoption, ETF news (e.g., ETH SEC approval).\n\n\n\n\n\nSpot Trading\n\nGraph analysis.\nDaily time-waves, hourly moves (e.g., parabola detection).\nEMA: Open on 5.\nBOLL.\nRSI: Check high or low buying.",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#bitcoin-dominance",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#bitcoin-dominance",
+    "title": "Crypto by Waqar Zaka",
+    "section": "Bitcoin Dominance",
+    "text": "Bitcoin Dominance\n\nCheck when high and low.\n\n\nBull Trap\n\nMarket pump.\n\n\n\nBlow-Off Top",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#trading-models-datasets",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#trading-models-datasets",
+    "title": "Crypto by Waqar Zaka",
+    "section": "Trading Models & Datasets",
+    "text": "Trading Models & Datasets\n\nOnline Trading Models\nAlgorithmic Trading Dataset\n\n\nAdditional Resources:\n\nYouTube: Trading Explanation\nCambridge Whitepaper\n\n\n\nWhitepaper Series:\n\nAI for FX Ecosystem\n\n\n\nPapers:\n\nAI for Finance Paper\nForex Trading Research",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#crypto-trading-research",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#crypto-trading-research",
+    "title": "Crypto by Waqar Zaka",
+    "section": "Crypto Trading Research",
+    "text": "Crypto Trading Research\n\nCrypto Trading Papers",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "blog/posts/2024-09-30-LectureNotes/index.html#stock-and-forex-data",
+    "href": "blog/posts/2024-09-30-LectureNotes/index.html#stock-and-forex-data",
+    "title": "Crypto by Waqar Zaka",
+    "section": "Stock and Forex Data",
+    "text": "Stock and Forex Data\n\nStock Data\nForex Trading Data",
+    "crumbs": [
+      "Blogs",
+      "blog",
+      "posts",
+      "2024-09-30-LectureNotes"
+    ]
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "res_dev",
+    "section": "",
+    "text": "source\n\nsay_hello\n\n say_hello (to)\n\nSay hello to research and development\n\nsay_hello(\"Isaac\")\n\n\nsource\n\n\nfoo\n\n foo ()",
+    "crumbs": [
+      "Blogs",
+      "res_dev"
+    ]
+  }
+]

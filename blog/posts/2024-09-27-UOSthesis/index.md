@@ -1,0 +1,204 @@
+# Predicting Forex Volatility Using Deep Learning
+Hafiz Ahmad Hassan
+2024-09-27
+
+See AI :
+
+Original : [Paper Link](https://arxiv.org/pdf/2112.01166)
+
+# Predicting Forex Volatility Using Deep Learning
+
+In this paper, we use deep learning techniques to predict the future
+volatility of Forex currency pairs. The multiscale Long Short-Term
+Memory (LSTM) model achieves state-of-the-art accuracy.
+
+**Keywords:** volatility forecast, neural network, deep learning, time
+series, recurrent neural network.
+
+------------------------------------------------------------------------
+
+## 1.1 Background and Motivation
+
+In this article, we use deep learning methods to solve a real-world
+problem closely related to trading applications, namely intraday
+volatility forecasting. Our study shows that the intuition-driven
+approach combined with the divide-and-conquer approach led by domain
+knowledge provides great potentials.
+
+Volatility modelling is one of the fundamental problems in the financial
+world. High-frequency trading algorithms need to predict intraday
+volatility to make real-time trading decisions, but practitioners often
+utilise ranges as a proxy of volatility in real trading.
+
+Deep neural networks (DNNs) and recurrent neural networks (RNNs) are two
+popular methods for volatility forecasting. DNN is a common network
+architecture that takes multivariate features as inputs and feeds them
+into fully connected layers, while RNNs capture the temporal information
+of data.
+
+## 1.2 Patterns in the Intraday Ranges
+
+FX ranges exhibit strong patterns, usually explained by economic
+reasons. Our main goal is to capture these economically linked
+intuitions in our prediction model.
+
+The FX market is heavily influenced by macroeconomic news and events,
+and volatility clustering and cross-currency correlations are often
+observed.
+
+The patterns can be summarised into three main categories: time-based
+seasonality, intraday auto-correlations, and cross-currency pair
+correlations.
+
+## 1.3 The Road Map for Deep Learning of FX Ranges
+
+Despite the complexity of the task, neural networks are a perfect
+candidate for generating range functions in real time. Neural networks’
+modular nature allows us to model the three main patterns individually
+using a divide-and-conquer approach.
+
+## 1.4 The Structure of the Paper
+
+This paper presents a neural network model for range forecasting. It is
+organised as follows: Section 3 provides an empirical analysis, and
+Section 4 presents a numerical experiment.
+
+------------------------------------------------------------------------
+
+# 2 Data Description
+
+We use the minutely price information of four Forex cross pairs (EURUSD,
+EURSEK, USDJPY, and USDMXN), and the daily trading period is ( T = 1440
+) minutes.
+
+## 2.1.1 Weekly Seasonality
+
+Trading volatility is slightly lower on Monday and Tuesday than on other
+days, and higher on Friday, Wednesday, and Thursday.
+
+## 2.2 Intraday and Interday Auto-correlation
+
+Intraday auto-correlations reflect latency in trading volatility, while
+interday auto-correlations show daily seasonality of volatility.
+
+------------------------------------------------------------------------
+
+# 3 Methodology
+
+We build a single neural network to capture all the desired empirical
+characteristics of volatility by designing modules for each empirical
+pattern and integrating them.
+
+We aim to predict the next minutely log range of a currency pair using
+information up to time ( t ) on day ( D ), adopting a standard
+regression setting. We use the squared loss function to optimize the
+model parameters.
+
+We discuss input ( X_t^D ), model architecture ( f ), and build a
+unified neural network to capture the empirical patterns.
+
+## 3.1 DNN and Time-based Patterns
+
+To predict trading volatility, we consider the timestamp ( t ), day of
+the week ( t_D ), and month ( t_D ) as input factors, using a
+multi-layer artificial neural network (DNN) to learn the next minutely
+volatility.
+
+## 3.2 LSTM and Auto-correlations
+
+We use the lagged values of log range in the previous ( p_t ) minutes
+and ( p_d ) days as the input ( y_t^D ) and ( z_t^D ) respectively.
+
+The LSTM model, known for its strength in analyzing sequential data, is
+used to predict the log range.
+
+## 3.3 2-LSTM and Multi-scale Time Dependence
+
+To capture both seasonality of the volatility simultaneously, we propose
+the multi-scale LSTM model (2-LSTM). It applies two LSTM models to (
+y_t^D ) and ( z_t^D ), then applies the ( l )-layer DNN to the
+concatenated output.
+
+## 3.4 p-Pairs-learning 2-LSTM and Cross-currency Pair Correlations
+
+We propose a 2-LSTM model to predict the volatility of ( p ) currency
+pairs by coupling information from non-liquid pairs with more liquid
+pairs that share the same currency base.
+
+The p-Pairs-learning 2-LSTM model uses historical information from other
+pairs sharing the same currency base to capture cross-currency pair
+correlations.
+
+------------------------------------------------------------------------
+
+# 4 Numerical Results
+
+We compare the predictive performance of deep learning-based models with
+two traditional autoregressive models. We choose the optimal orders ( p
+) for EURUSD, EURSEK, USDJPY, and USDMXN based on results shown in
+Figure 10 of Appendix B.
+
+We conduct 3-fold sequential blocked cross-validation in chronological
+order, using mean squared error (MSE) as the test metric. We also
+perform a statistical test called the Diebold-Mariano (DM) test.
+
+## 4.1 Network Architecture
+
+The proposed p-Pairs-learning 2-LSTM method consistently outperforms
+other models in terms of MSE on testing sets. LSTM-based methods
+noticeably reduce MSE compared to plain DNN by incorporating historical
+volatility information.
+
+In Table 3 of pairwise DM test results, we observe that 2-LSTM and
+2-Pairs-learning outperform other methods for EURUSD, EURSEK, USDJPY,
+and USDMXN, while 4-Pairs-learning has statistically similar performance
+to other models.
+
+## 4.3 Comparison Between LSTM-based Models
+
+The 2-LSTM model, using intraday historical data and a recurrent
+structure, shows significant improvement over LSTMD, though it doesn’t
+significantly outperform LSTMt.
+
+For 2-Pairs learning, the prediction results improve slightly for less
+liquid currencies. For 4-Pairs learning, the results are significantly
+boosted compared to 2-Pairs learning when considering MSE averages.
+
+## 4.4 Sensitivity Analysis
+
+We study the sensitivity of 4-Pairs-learning 2-LSTM to lag value ( p ).
+The MSE on testing data decreases as ( p ) increases.
+
+------------------------------------------------------------------------
+
+# 5 Conclusion
+
+We developed deep learning-based models to forecast intraday volatility
+in the Forex market. The proposed model consistently outperforms
+conventional methods and other deep learning models in terms of MSE and
+DM test results.
+
+------------------------------------------------------------------------
+
+## A.1 Supervised Learning Framework
+
+Supervised learning aims to find the optimal parameters for a continuous
+map between input and output, such that the predicted output is as close
+as possible to the actual output.
+
+Cross entropy loss is popular for classification, while mean squared
+error (MSE) is used for regression problems.
+
+## A.2.1 Deep Neural Network
+
+Deep neural networks (DNNs) are multi-layer networks with ( L \> 2 ),
+defined recursively using an activation function, weight matrix, and
+bias term.
+
+## A.2.2 Long Short-Term Memory
+
+LSTM consists of an input layer, a hidden layer, and an output layer.
+Each memory cell has three gates: input, output, and forget.
+
+We compute the MSE of AR(( p )) models for different currency pairs
+using the LSTM model.
