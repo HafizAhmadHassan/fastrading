@@ -3,11 +3,10 @@ website:
     contents:
       - index.ipynb
       - 00_core.ipynb
-      - section: blog
+      - section: Blogs
         contents:
           - section: posts
             contents:
               - section: 2024-09-28-research1
               contents:
               - index.qmd
-        href: blog/index.qmd
