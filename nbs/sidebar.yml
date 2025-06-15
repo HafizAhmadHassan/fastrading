@@ -6,7 +6,3 @@ website:
       - section: Blogs
         contents:
           - section: posts
-            contents:
-              - section: 2024-09-28-research1
-              contents:
-              - index.qmd
