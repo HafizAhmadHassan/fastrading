@@ -1,4 +1,5 @@
 # Fastrading
+*Created: 2024-09-27*
 
 A Python **algorithmic trading** library built with **nbdev**.
 
